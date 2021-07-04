@@ -6,8 +6,13 @@ Object should have hourly_sales property with hard coded [48, 42, 30, 24, 42, 24
 
 export default function CreateForm({onCreate}){
 // export default function CreateForm({onCreate, stand}){
-    const hourly_sales = [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
-    const {location, hourly_sales} = stand
+
+    function onCreate(event){
+        event.preventDefault();
+        const stand = {
+            location:location,
+            hourly_sales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36]
+        }
 
 
     return (
@@ -22,4 +27,4 @@ export default function CreateForm({onCreate}){
             </div>
         </form> 
         )
-}
+}}

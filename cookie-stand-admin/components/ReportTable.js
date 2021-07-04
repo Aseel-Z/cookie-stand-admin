@@ -7,20 +7,51 @@ Component should render to match spec.
 Component is responsible for tallying totals for each cookie stand as well as all cookie stands per hourly slot. */}
 
 
-import React, { useEffect, useState } from 'react'
+import { workHours } from "../data"
+import { useEffect, useState } from 'react'
 
-export default function ReportTable({cookieStands, open_hours}){
+export default function ReportTable(props){
+
+    const hours = workHours;
+  
 
 
-    if (cookieStands.length) {
+    if (props.reports.length) {
         return (
-            <table className="w-1/2 mx-auto border-4 border-collapse border-green-500 mt-10 bg-green-200">
+            <table >
+                <thead className="bg-green-500">
+                    <tr>
+                        <th>
+                        Location
+                        </th>
+                        {workHours.map(hour => (<th>{workHours}</th>))}
+                        <th>
+                            Totals
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr >
+                        <th >Totals</th>
+                       
+                        <th ></th>
+                    </tr>
+                </tfoot>
             </table>
+ 
     
         )} else {
         return (
             <h2 className='m-5 text-gray-700 text-xl' >No Cookie Stands Available</h2>
-        )
+            
+        ) 
+      
+            
+        
     }
 }
+
 
