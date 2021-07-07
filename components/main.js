@@ -29,8 +29,6 @@ export default function CookieStandMain(props) {
     function onCreate(event){
         event.preventDefault();
         const result = []
-        let cookiesNum;
-        let customerNum;
         const data = {
             location:location,
             hourlySales:[],
@@ -57,7 +55,7 @@ export default function CookieStandMain(props) {
 
 
     return (
-        <main key="0" className='grid w-full p-10 px-0 text-center bg-green-100 justify-items-stretch'>
+        <main className='grid w-full p-10 px-0 text-center bg-green-100 justify-items-stretch'>
             <form onSubmit={onCreate} className = 'className="px-11 py-4 mx-10 bg-green-300 rounded w-4/5justify-self-center' >
             <h2 > Create Cookie Stand</h2>
             <label className="w-3 text-left p3">Location<input name = 'location' id = 'location' required  className='w-5/6 m-3' type="text" onChange={locHandler}/></label>
@@ -73,22 +71,21 @@ export default function CookieStandMain(props) {
                 <h2 className='m-4'>No Cookie Stands Available</h2> :
                 <table  className="m-8 border-collapse border border-gray-900 rounded-lg">
                     <thead className="bg-green-500">
-                    <tr >
-                        {/* <tr key="0"> */}
+                        <tr>
                             <th>
                                 Location
                             </th>
-                            {workHours.map(hour => (<th>{hour}</th>))}
+                            {workHours.map((hour,id) => <th key = {id}>{hour}</th>)}
                             <th>
                                 Totals
                             </th>
                         </tr>
                     </thead>
                     <tbody className="border-collapse border border-gray-900">
-                        {report.map(data => (
-                            <tr className="border-collapse border border-gray-900" key={data.id}>
+                        {report.map((data, id) => (
+                            <tr className="border-collapse border border-gray-900" key={id}>
                                 <td className="border-collapse border border-gray-900">{data.location}</td>
-                                {data.hourlySales.map(cookie => (<td className="border-collapse border border-gray-900">{cookie}</td>))}
+                                {data.hourlySales.map((cookie ,id) => <td key={id} className="border-collapse border border-gray-900">{cookie}</td>)}
                                 <td className="border-collapse border border-gray-900">{data.hourlySales.reduce((acc, curr) => {acc = acc+curr; return acc},0)}</td>
                             </tr>
                         ))}
@@ -96,7 +93,7 @@ export default function CookieStandMain(props) {
                     <tfoot className="border-collapse border border-gray-900 bg-green-500">
                         <tr className="border-collapse border border-gray-900" key={report.length + 1}>
                             <th className="border-collapse border border-gray-900">Totals</th>
-                            {sum.map(sum => (<th className="border-collapse border border-gray-900">{parseInt(sum)}</th>))}
+                            {sum.map((sum,id) => <th key = {id} className="border-collapse border border-gray-900">{parseInt(sum)}</th>)}
                             <th className="border-collapse border border-gray-900">{sum.reduce((acc, curr) => {acc = acc+curr; return parseInt(acc)},0)}</th>
                         </tr>
                     </tfoot>

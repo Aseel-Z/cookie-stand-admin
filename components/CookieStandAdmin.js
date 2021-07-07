@@ -10,7 +10,7 @@ export default function CookieStandAdmin() {
   const [title,setTitle] = useState('Cookie Stand Admin');
   const [branches,setBranches] = useState('0')
   const [path,setPath] = useState("/overview")
-  const [page,setPage] = useState("overview")
+  const [page,setPage] = useState("Overview")
 
     return (
         <div>
