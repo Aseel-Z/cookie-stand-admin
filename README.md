@@ -10,4 +10,4 @@ https://github.com/Aseel-Z/cookie-stand-admin
 
 
 ## Deployed App URL
-https://cookie-stand-admin-inky.vercel.app/
+https://cookie-stand-admin-kappa-umber.vercel.app/
