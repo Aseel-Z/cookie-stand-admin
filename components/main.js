@@ -57,7 +57,7 @@ export default function CookieStandMain(props) {
 
 
     return (
-        <main className='grid w-full p-10 px-0 text-center bg-green-100 justify-items-stretch'>
+        <main key="0" className='grid w-full p-10 px-0 text-center bg-green-100 justify-items-stretch'>
             <form onSubmit={onCreate} className = 'className="px-11 py-4 mx-10 bg-green-300 rounded w-4/5justify-self-center' >
             <h2 > Create Cookie Stand</h2>
             <label className="w-3 text-left p3">Location<input name = 'location' id = 'location' required  className='w-5/6 m-3' type="text" onChange={locHandler}/></label>
@@ -71,9 +71,10 @@ export default function CookieStandMain(props) {
             <div className="inline-block flex flex-col ... text-center ... mb-8 ... container mx-auto w-4/5">
                 {(report.length == 0) ? 
                 <h2 className='m-4'>No Cookie Stands Available</h2> :
-                <table className="m-8 border-collapse border border-gray-900 rounded-lg">
+                <table  className="m-8 border-collapse border border-gray-900 rounded-lg">
                     <thead className="bg-green-500">
-                        <tr key="0">
+                    <tr >
+                        {/* <tr key="0"> */}
                             <th>
                                 Location
                             </th>
